@@ -32,20 +32,29 @@ const Day2 = () => {
         setTime(0);
     }
   return (
-    <div className='stopwatch-container'>
-        <p className='stopwatch-time'>
-        {hours}:{minutes.toString().padStart(2, "0")}:
-        {seconds.toString().padStart(2, "0")}:
-        {milliseconds.toString().padStart(2, "0")}
-        </p>
+    <div className='w-full h-screen flex justify-center items-center'>
+        <div className='bg-gray-200 shadow-xl w-1/3 h-1/2 rounded-full flex flex-col items-center justify-center p-10'>
+        <div className='bg-gray-100 w-full h-full rounded-full flex flex-col items-center justify-center'>
+            <span className='stopwatch-time'>
+            {/* {hours}:{minutes.toString().padStart(2, "0")}:
+            {seconds.toString().padStart(2, "0")}:
+            {milliseconds.toString().padStart(2, "0")} */}
+            <span className='font-semibold text-[5rem]'>
+            {hours}:{minutes.toString().padStart(2, "0")}:
+            {seconds.toString().padStart(2, "0")}
+            </span>
+            </span>
 
-        <div className='stopwatch-buttons'>
-            <button className='stopwatch-button' onClick={startAndStop}>
-                {isRunning ? "Stop" : "Start"}
-            </button>
-            <button className='stopwatch-button' onClick={reset}>
-                Reset
-            </button>
+            <div className='stopwatch-buttons flex gap-3'>
+                <button className= {` ${isRunning ? "bg-green-500 text-white py-2 px-4 rounded-md" : "bg-blue-500 text-white py-2 px-4  rounded-md"} `} onClick={startAndStop}>
+                    {isRunning ? "Stop" : "Start"}
+                </button>
+                <button className='stopwatch-button bg-red-500 text-white py-2 px-4 rounded-md' onClick={reset}>
+                    Reset
+                </button>
+            </div>
+        </div>
+
         </div>
     </div>
   )
